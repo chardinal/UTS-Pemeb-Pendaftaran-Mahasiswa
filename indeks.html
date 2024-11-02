@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pendaftaran Mahasiswa Baru | UNESA</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="functionjs"></script>
+
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-top">
+            <div class="container header-content">
+                <div class="logo-container">
+                    <!-- Ganti src dengan path logo universitas Anda -->
+                    <img src="Logo Unesa (Universitas Negeri Surabaya) laluahmadcom.png" alt="Logo Universitas" class="logo">
+                </div>
+                <div class="university-name">
+                    <h1>UNIVERSITAS NEGERI SURABAYA</h1>
+                    <p>Growing With Character</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Navigation Bar -->
+        <nav>
+            <div class="container">
+                <ul class="nav-links">
+                    <li><a href="#"><i class="fas fa-home"></i> Beranda</a></li>
+                    <li><a href="#"><i class="fas fa-info-circle"></i> Tentang</a></li>
+                    <li><a href="#"><i class="fas fa-graduation-cap"></i> Akademik</a></li>
+                    <li class="active"><a href="#"><i class="fas fa-user-plus"></i> Pendaftaran</a></li>
+                    <li><a href="#"><i class="fas fa-newspaper"></i> Berita</a></li>
+                    <li><a href="#"><i class="fas fa-phone"></i> Kontak</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="container">
+
+            <div class="content-wrapper">
+                <!-- Sidebar -->
+                <aside class="sidebar">
+                    <div class="info-box">
+                        <h3>Informasi Pendaftaran</h3>
+                        <ul>
+                            <li><i class="fas fa-calendar"></i> Periode Pendaftaran:<br>1 Juni - 30 Juni 2024</li>
+                            <li><i class="fas fa-clock"></i> Jam Pelayanan:<br>08.00 - 16.00 WIB</li>
+                            <li><i class="fas fa-phone"></i> Contact Center:<br>+6231-99421834</li>
+                        </ul>
+                    </div>
+
+                    <div class="quick-links">
+                        <h3>Link Terkait</h3>
+                        <ul>
+                            <li><a href="https://sipenmaru.unesa.ac.id/"><i class="fas fa-file-pdf"></i> Panduan Pendaftaran</a></li>
+                            <li><a href="https://www.unesa.ac.id/page/akademik/"><i class="fas fa-university"></i> Fakultas</a></li>
+                            <li><a href="#"><i class="fas fa-book"></i> Program Studi</a></li>
+                            <li><a href="#"><i class="fas fa-question-circle"></i> FAQ</a></li>
+                        </ul>
+                    </div>
+                </aside>
+
+                <!-- Registration Form -->
+                <div class="main-content">
+                    <div class="form-container">
+                        <h2>Formulir Pendaftaran Mahasiswa Baru</h2>
+
+                        <!-- Progress Bar -->
+                        <div class="progress-bar">
+                            <div class="progress" id="progressBar"></div>
+                        </div>
+
+                        <form id="registrationForm" onsubmit="return validateForm(event)">
+                            <div class="form-group">
+                                <label for="nama">Nama Lengkap*</label>
+                                <input type="text" id="nama" name="nama" required>
+                                <div class="error" id="namaError">Nama lengkap harus diisi</div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="nik">NIK*</label>
+                                <input type="text" id="nik" name="nik" required maxlength="16">
+                                <div class="error" id="nikError">NIK harus 16 digit</div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="tempat_lahir">Tempat Lahir*</label>
+                                <input type="text" id="tempat_lahir" name="tempat_lahir" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="tanggal_lahir">Tanggal Lahir*</label>
+                                <input type="date" id="tanggal_lahir" name="tanggal_lahir" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="jenis_kelamin">Jenis Kelamin*</label>
+                                <select id="jenis_kelamin" name="jenis_kelamin" required>
+                                    <option value="">Pilih Jenis Kelamin</option>
+                                    <option value="L">Laki-laki</option>
+                                    <option value="P">Perempuan</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="alamat">Alamat Lengkap*</label>
+                                <textarea id="alamat" name="alamat" rows="3" required></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email*</label>
+                                <input type="email" id="email" name="email" required>
+                                <div class="error" id="emailError">Format email tidak valid</div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="telepon">Nomor Telepon*</label>
+                                <input type="tel" id="telepon" name="telepon" required>
+                                <div class="error" id="teleponError">Nomor telepon tidak valid</div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="jurusan">Jurusan yang Dipilih*</label>
+                                <select id="jurusan" name="jurusan" required>
+                                    <option value="">Pilih Jurusan</option>
+                                    <option value="TI">Teknik Informatika</option>
+                                    <option value="SI">Sistem Informasi</option>
+                                    <option value="MI">Manajemen Informatika</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="foto">Foto*</label>
+                                <input type="file" id="foto" name="foto" accept="image/*" required onchange="previewPhoto(event)">
+                                <div class="photo-preview" id="photoPreview">
+                                    <span>Preview Foto</span>
+                                </div>
+                                <div class="error" id="fotoError">Harap upload foto</div>
+                            </div>
+
+                            <button type="submit">Daftar Sekarang</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Kontak Kami</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Jl. Lidah Wetan, Surabaya (60213)</p>
+                    <p><i class="fas fa-phone"></i> +6231-99421834</p>
+                    <p><i class="fas fa-envelope"></i> info@unesa.ac.id</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Media Sosial</h3>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/universitasnegerisurabaya"><i class="fab fa-facebook"></i></a>
+                        <a href="https://x.com/official_unesa"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/official_unesa/"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/@unesaofficial"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Link Penting</h3>
+                    <ul>
+                        <li><a href="https://unesa.ac.id/tentang">TENTANG UNESA</a></li>
+                        <li><a href="https://unesa.ac.id/pendidikan">PENDIDIKAN</a></li>
+                        <li><a href="https://unesa.ac.id/penelitian">PENELITIAN</a></li>
+                        <li><a href="https://unesa.ac.id/pengabdian">PENGABDIAN</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; Copyright 2024 @ Universitas Negeri Surabaya </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
